@@ -1,0 +1,22 @@
+<html>
+<head>
+  <title>Comedians</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../public/main.css">
+</head>
+<body>
+  <div class="main_title">
+    <header><h1>Comedians</h1></header>
+  </div>
+  <div class='comedian table'>
+    <% @comedians.each do |comedian| %>
+      <h3 class='comedian name'><%= comedian.name %></h3>
+      <h5 class='comedian age'><%= comedian.age %></h5>
+      <% @specials.where(comedian_id:comedian.id).each do |special| %>
+        <h5 class='comedian special'><%= special.name %></h5>
+      <% end %>
+    <% end %>
+  </div>
+</body>
+</html>
